@@ -13,11 +13,13 @@ jobs:
         with:
           node-version: 12.x
       - name: Cypress run
-        uses: cypress-io/github-action@v1
+        uses: cypress-io/github-action@v2
         with:
           build: npm run build
           start: npm start
-          wait-on: http://localhost:1234
+          wait-on: 'npx wait-on http://localhost:3000'
+          config-file: cypress/config.json
+          config: baseUrl=http://localhost:3000
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
