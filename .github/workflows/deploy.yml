@@ -18,10 +18,10 @@ jobs:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
 
-      # - name: Use Node.js 12.x
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: 12.x
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
       # - name: Cypress run
       #   uses: cypress-io/github-action@v2
@@ -42,7 +42,6 @@ jobs:
       #   run: npm run deploy
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        uses: actions/setup-node@v1
         run: |
           npm install
           npm run build
